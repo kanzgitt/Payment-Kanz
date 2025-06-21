@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Options</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .payment-container {
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 800px;
+            overflow: hidden;
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        .payment-header {
+            background: linear-gradient(to right, #4e54c8, #8f94fb);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .payment-header h1 {
+            font-size: 28px;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        .payment-header p {
+            opacity: 0.9;
+            font-size: 16px;
+        }
+        
+        .payment-methods {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 30px;
+        }
+        
+        .method {
+            flex: 1;
+            min-width: 300px;
+            margin: 15px;
+            background-color: #f9f9f9;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .method:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .method-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .method-title img {
+            width: 40px;
+            margin-right: 15px;
+        }
+        
+        .method-title h2 {
+            font-size: 22px;
+            font-weight: 600;
+        }
+        
+        .payment-details {
+            margin-top: 20px;
+        }
+        
+        .detail-item {
+            margin-bottom: 15px;
+        }
+        
+        .detail-item h3 {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .detail-item p {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            background-color: #f0f0f0;
+            padding: 10px 15px;
+            border-radius: 8px;
+            word-break: break-all;
+        }
+        
+        .qris-image {
+            width: 100%;
+            max-width: 250px;
+            margin: 20px auto;
+            display: block;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .qris-image:hover {
+            transform: scale(1.03);
+        }
+        
+        .copy-btn {
+            background-color: #4e54c8;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .copy-btn:hover {
+            background-color: #3a41b8;
+        }
+        
+        .instructions {
+            background-color: #f0f4ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        
+        .instructions h3 {
+            color: #4e54c8;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        
+        .instructions ol {
+            padding-left: 20px;
+        }
+        
+        .instructions li {
+            margin-bottom: 8px;
+            color: #555;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .payment-methods {
+                flex-direction: column;
+                padding: 20px;
+            }
+            
+            .method {
+                margin: 10px 0;
+            }
+            
+            .payment-header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="payment-container">
+        <div class="payment-header">
+            <h1>Payment Options</h1>
+            <p>Choose your preferred payment method</p>
+        </div>
+        
+        <div class="payment-methods">
+            <div class="method">
+                <div class="method-title">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Logo_dana_blue.svg" alt="DANA Logo">
+                    <h2>DANA Payment</h2>
+                </div>
+                
+                <div class="payment-details">
+                    <div class="detail-item">
+                        <h3>DANA Number</h3>
+                        <p id="danaNumber">08817680325</p>
+                        <button class="copy-btn" onclick="copyToClipboard('danaNumber')">Copy Number</button>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <h3>Account Name</h3>
+                        <p>S***** A***</p>
+                    </div>
+                </div>
+                
+                <div class="instructions">
+                    <h3>How to pay via DANA:</h3>
+                    <ol>
+                        <li>Open the DANA app on your phone</li>
+                        <li>Go to "Send Money" or "Transfer"</li>
+                        <li>Enter the DANA number above</li>
+                        <li>Confirm the account name matches</li>
+                        <li>Enter the payment amount and complete the transaction</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="method">
+                <div class="method-title">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/QR_code_for_mobile_English_Wikipedia.svg/1200px-QR_code_for_mobile_English_Wikipedia.svg.png" alt="QRIS Logo" style="filter: hue-rotate(200deg);">
+                    <h2>QRIS Payment</h2>
+                </div>
+                
+                <div class="payment-details">
+                    <img src="https://ar-hosting.pages.dev/1749399734062.jpg" alt="QRIS Code" class="qris-image">
+                    
+                    <div class="detail-item">
+                        <h3>Account Name</h3>
+                        <p>V** S****</p>
+                    </div>
+                </div>
+                
+                <div class="instructions">
+                    <h3>How to pay via QRIS:</h3>
+                    <ol>
+                        <li>Open your mobile banking or e-wallet app</li>
+                        <li>Select "Scan QR" or "QRIS Payment"</li>
+                        <li>Scan the QR code above</li>
+                        <li>Enter the payment amount</li>
+                        <li>Confirm and complete the transaction</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function copyToClipboard(elementId) {
+            const element = document.getElementById(elementId);
+            const text = element.innerText;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                const btn = element.nextElementSibling;
+                btn.innerText = "Copied!";
+                setTimeout(() => {
+                    btn.innerText = "Copy Number";
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+    </script>
+</body>
+</html>
